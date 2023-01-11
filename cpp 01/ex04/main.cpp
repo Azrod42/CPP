@@ -54,6 +54,5 @@ int main(int argc, char **argv)
 		line += '\n';
 		out << line;
 	}
-	system("leaks ex04");
 	return (0);
 }
