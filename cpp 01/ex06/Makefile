@@ -1,6 +1,8 @@
-NAME =ex04
+NAME =ex06
 
 SRCS = main.cpp \
+		Harl.cpp \
+
 
 INCLUDE = 
 
@@ -11,7 +13,7 @@ FLAGS		=-Wall -Werror -Wextra ${CPPFLAGS}
 INCS		=.
 
 .cpp.o :
-	@echo "${_BOLD}${lol}Making ${NAME} > ${_END}${_YELLOW}${<:.cpp=.o}${_END}"
+	@echo "${_BOLD}${_BLUE}Making ${NAME} > ${_END}${_YELLOW}${<:.cpp=.o}${_END}"
 	@${CC} ${FLAGS} -c $< -o ${<:.cpp=.o} -I${INCS}
 
 all: $(NAME)
@@ -65,9 +67,9 @@ reee:
 	@./${NAME}
 
 flag_use:
-	@echo "${_BOLD}${lol}============================= FLAGS USE =============================${_END}"
+	@echo "${_BOLD}${_BLUE}============================= FLAGS USE =============================${_END}"
 	@echo "${_BOLD}${_RED}\t\t   ${FLAGS}${_END}"
-	@echo "${_BOLD}${lol}=====================================================================${_END}"
+	@echo "${_BOLD}${_BLUE}=====================================================================${_END}"
 
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # This is a minimal set of ANSI/VT100 color codes
@@ -81,7 +83,7 @@ _GREY=$'\x1b[30
 _RED=$'\x1b[31m
 _GREEN=$'\x1b[32m
 _YELLOW=$'\x1b[33m
-lol=$'\x1b[34m
+_BLUE=$'\x1b[34m
 _PURPLE=$'\x1b[35m
 _CYAN=$'\x1b[36m
 _WHITE=$'\x1b[37m
@@ -103,7 +105,7 @@ _L1=$'| ___ ____ ____ ____ ____ ___  ____ _    |
 _L2=$'|  |  [__  |  | |__/ |__| |__] |___ |    |
 _L3=$'|  |  ___] |__| |  \ |  | |__] |___ |___ |
 _L4=$'|                                        |
-_L5=$'|        |c|p|p| |0|1| |e|x|0|4|         |
+_L5=$'|        |c|p|p| |0|1| |e|x|0|6|         |
 
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -121,11 +123,11 @@ _L14=$'| ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝�
 _USAGE=@echo "${_BOLD}${_RED}\nUsage : ./${NAME}${_END}"
 
 _DONE=@echo "${_BOLD}✅ ${_IGREEN}Done${_END}"
-_STATUS2=@echo "${_BOLD}${lol}Making > ${_END}${_YELLOW} ${NAME}${_END}" && sleep 0.5
-_STATUS3=@echo "${_BOLD}${lol}Removing > ${_END}${_YELLOW} ${OBJS} ${_END}" && sleep 0.5
-_STATUS5=@echo "${_BOLD}${lol}Removing > ${_END}${_RED} ${_GREEN}$(NAME)${_END}" && sleep 0.5
-_STATUS6=@echo "${_BOLD}${lol}Removing > ${_END}${_YELLOW} $(OBJS) $(NAME) ${_END}" && sleep 0.5
-_STATUS7=@echo "${_BOLD}${lol}GIT ADD : ${SRCS} ${INCLUDE} Makefile ${_END}" && sleep 0.5
-_STATUS8=@echo "${_BOLD}${lol}GIT COMMIT ...${_END}" && sleep 0.5
-_STATUS9=@echo "${_BOLD}${lol}GIT PUSH ...${_END}" && sleep 0.5
+_STATUS2=@echo "${_BOLD}${_BLUE}Making > ${_END}${_YELLOW} ${NAME}${_END}" && sleep 0.5
+_STATUS3=@echo "${_BOLD}${_BLUE}Removing > ${_END}${_YELLOW} ${OBJS} ${_END}" && sleep 0.5
+_STATUS5=@echo "${_BOLD}${_BLUE}Removing > ${_END}${_RED} ${_GREEN}$(NAME)${_END}" && sleep 0.5
+_STATUS6=@echo "${_BOLD}${_BLUE}Removing > ${_END}${_YELLOW} $(OBJS) $(NAME) ${_END}" && sleep 0.5
+_STATUS7=@echo "${_BOLD}${_BLUE}GIT ADD : ${SRCS} ${INCLUDE} Makefile ${_END}" && sleep 0.5
+_STATUS8=@echo "${_BOLD}${_BLUE}GIT COMMIT ...${_END}" && sleep 0.5
+_STATUS9=@echo "${_BOLD}${_BLUE}GIT PUSH ...${_END}" && sleep 0.5
 
