@@ -1,22 +1,23 @@
 #include <fstream>
 #include <iostream>
+#include <cstdio>
 #include <string>
 
 void ft_replace(std::string& line, std::string& replace, std::string& to_find)
 {
 	std::string buf;
 	std::size_t pos = 0;
-	std::size_t oldpos;
+	// std::size_t oldpos;
 	while (true){
 		buf.reserve(line.size() + replace.size());
 		buf.clear();
-		oldpos = pos;
+		// oldpos = pos;
 		pos = line.find(to_find, pos);
 		if (pos == std::string::npos)
 			break;	
 		buf.append(line, 0, pos);
 		buf += replace;
-		buf.append(line, pos + to_find.size(), 100);
+		buf.append(line, pos + to_find.size(), 1000);
 		line.swap(buf);
 	}
 }
@@ -27,7 +28,12 @@ int main(int argc, char **argv)
 	std::string	to_find(argv[2]);
 	std::string replace(argv[3]);
 	std::ifstream file;
-
+	std::ofstream out;
+	std::string retfile(argv[1]);
+	
+	retfile += ".replace";
+	std::remove(retfile.c_str());
+	out.open(retfile, std::ios::app);
 	if (argc != 4 || to_find.size() < 1)
 	{
 		std::cout << "Usage ./ex04 [filename] [ToReplace] [ReplaceBy(.size() > 1)]" << std::endl;
@@ -36,7 +42,8 @@ int main(int argc, char **argv)
 	file.open(argv[1]);
 	for (std::string line; getline(file, line); ){
 		ft_replace(line, replace, to_find);
-		std::cout << line << std::endl;
+		line += '\n';
+		out << line;
 	}
 	return (0);
 }
